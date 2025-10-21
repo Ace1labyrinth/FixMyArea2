@@ -248,20 +248,20 @@ const Hero = styled.div`
   padding: 2rem;
 
   h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: green;
 
     @media (max-width: 768px) {
-      font-size: 2rem;
+      font-size: 2.5rem;
     }
     @media (max-width: 480px) {
-      font-size: 1.6rem;
+      font-size: 1.4rem;
     }
   }
 
   .para {
     margin: 0.5rem 0;
-    font-size: 1rem;
+    font-size: 1.5rem;
 
     @media (max-width: 480px) {
       font-size: 0.9rem;
