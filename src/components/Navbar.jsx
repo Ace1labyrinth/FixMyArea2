@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import {Link, useNavigate} from "react-router-dom";
 import {auth} from "../firebase";
+
+
 const Navbar = () => {
   const navigate = useNavigate();
+  const [menuOpen, setMenuOpen] = useState(false);
+
   const handleLogout = async () => {
     await auth.signOut();
     navigate("/login");
@@ -11,14 +15,27 @@ const Navbar = () => {
   return (
     <Nav>
       <Logo>FixMyArea</Logo>
-      <NavLinks>
-        <StyledLink to="/">Home</StyledLink>
-        <StyledLink to="/about">About</StyledLink>
-        <StyledLink to="/report">Report</StyledLink>
+      <MenuIcon onClick={() => setMenuOpen(!menuOpen)}>
+        <span />
+        <span />
+        <span />
+      </MenuIcon>
+      <NavLinks open={menuOpen}>
+        <StyledLink to="/" onClick={() => setMenuOpen(false)}>
+          Home
+        </StyledLink>
+        <StyledLink to="/about" onClick={() => setMenuOpen(false)}>
+          About
+        </StyledLink>
+        <StyledLink to="/report" onClick={() => setMenuOpen(false)}>
+          Report
+        </StyledLink>
         {auth.currentUser ? (
           <LogoutButton onClick={handleLogout}>Logout</LogoutButton>
         ) : (
-          <StyledLink to="/login">Login</StyledLink>
+          <StyledLink to="/login" onClick={() => setMenuOpen(false)}>
+            Login
+          </StyledLink>
         )}
       </NavLinks>
     </Nav>
@@ -46,6 +63,23 @@ const NavLinks = styled.div`
   display: flex;
   align-items: center;
   gap: 1.2rem;
+
+  @media (max-width: 768px) {
+    position: absolute;
+    top: 65px;
+    right: -9%;
+    background: rgb(74, 149, 74);
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding: 1rem 2rem;
+    gap: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease-in-out;
+    transform: ${({open}) => (open ? "translateY(0)" : "translateY(-200%)")};
+    opacity: ${({open}) => (open ? "1" : "0")};
+    pointer-events: ${({open}) => (open ? "auto" : "none")};
+  }
 `;
 const StyledLink = styled(Link)`
   color: white;
@@ -56,6 +90,24 @@ const StyledLink = styled(Link)`
     text-decoration: underline;
   }
 `;
+
+const MenuIcon = styled.div `
+display: none;
+flex-direction: column;
+cursor: pointer;
+gap: 5px;
+
+span {
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+@media (max-width: 768px) {
+  display: flex;
+}
+`
 
 const LogoutButton = styled.button`
   background: transparent;

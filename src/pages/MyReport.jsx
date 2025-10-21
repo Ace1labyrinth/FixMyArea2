@@ -172,15 +172,27 @@ export default MyReports;
 
 const Container = styled.div`
   padding: 1rem;
-  // width: 100%;
+  max-width: 1200px;
   margin: auto;
+
+  @media (max-width: 768px){
+    padding: 0.8rem;
+  }
+  @media (max-width: 480px){
+    padding: 0.6rem;
+  }
 `;
 const Title = styled.h2`
   font-size: 1.8rem;
   font-weight: 600;
   color: #222;
   margin-bottom: 1rem;
+
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+  }
 `;
+
 const SuccessMsg = styled.p`
   color: #16a34a;
   font-weight: 500;
@@ -191,15 +203,19 @@ const SuccessMsg = styled.p`
 const ReportsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-  width: 100%;
   gap: 1.2rem;
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const ReportCard = styled.div`
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 10px 20px;
+  padding: 15px 20px;
+  transition: 0.3s ease-in-out;
 
   &:hover {
     transform: translateY(-3px);
@@ -217,6 +233,16 @@ const ReportCard = styled.div`
   small {
     color: gray;
   }
+
+  @media (max-width: 480px) {
+    padding: 12px 15px;
+    h3 {
+      font-size: 1rem;
+    }
+    p {
+      font-size: 0.85rem;
+    }
+  }
 `;
 
 const Image = styled.img`
@@ -225,7 +251,12 @@ const Image = styled.img`
   object-fit: cover;
   border-radius: 8px;
   margin-top: 0.5rem;
+
+  @media (max-width: 480px) {
+    max-height: 160px;
+  }
 `;
+
 const EditArea = styled.textarea`
   width: 100%;
   padding: 8px;
@@ -234,12 +265,23 @@ const EditArea = styled.textarea`
   font-size: 0.95rem;
   resize: vertical;
   margin-bottom: 0.7rem;
+
+  @media (max-width: 480px){
+    font-size: 0.85rem;
+  }
 `;
+
 const ButtonRow = styled.div`
   display: flex;
   gap: 10px;
   margin-top: 0.5rem;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    gap: 8px;
+  }
 `;
+
 const ButtonBase = styled.button`
   padding: 6px 12px;
   border-radius: 6px;
@@ -247,8 +289,13 @@ const ButtonBase = styled.button`
   font-weight: 500;
   border: none;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.3s ease-in-out;
+
+  @media (max-width: 480px){
+    font-size: 0.85rem;
+  }
 `;
+
 const EditButton = styled(ButtonBase)`
   background-color: #3b82f6;
   color: white;
@@ -257,6 +304,7 @@ const EditButton = styled(ButtonBase)`
     background-color: #2563eb;
   }
 `;
+
 const DeleteButton = styled(ButtonBase)`
   background-color: #ef4444;
   color: white;
@@ -265,6 +313,7 @@ const DeleteButton = styled(ButtonBase)`
     background-color: #dc2626;
   }
 `;
+
 const SaveButton = styled(ButtonBase)`
   background-color: #16a34a;
   color: white;
@@ -273,6 +322,7 @@ const SaveButton = styled(ButtonBase)`
     background-color: #15803d;
   }
 `;
+
 const CancelButton = styled(ButtonBase)`
   background-color: #9ca3af;
   color: white;

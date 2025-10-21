@@ -230,11 +230,13 @@ export default Home;
 
 const Container = styled.div`
   font-family: "Poppins", sans-serif;
-  // background: #f5f6f9;
-  // color: #333;
   min-height: 100vh;
   padding: 2rem;
   background: #f5f6f9;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 `;
 
 /* Hero */
@@ -248,10 +250,22 @@ const Hero = styled.div`
   h1 {
     font-size: 2rem;
     color: green;
+
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+    @media (max-width: 480px) {
+      font-size: 1.6rem;
+    }
   }
 
   .para {
     margin: 0.5rem 0;
+    font-size: 1rem;
+
+    @media (max-width: 480px) {
+      font-size: 0.9rem;
+    }
   }
 `;
 
@@ -292,6 +306,11 @@ const FilterButton = styled.button`
     background: green;
     color: #fff;
   }
+  @media (max-width: 480px) {
+    width: 150px;
+    padding: 0.5rem 1rem;
+    
+  }
 `;
 
 /* Issues Grid */
@@ -300,6 +319,11 @@ const IssuesContainer = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.2rem;
   padding: 0 2rem;
+
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    padding: 0;
+  }
 `;
 
 /* Issue Card */
@@ -320,6 +344,10 @@ const IssueCard = styled.div`
     margin-bottom: 0.7rem;
     height: 180px;
     object-fit: cover;
+
+    @media (max-width: 480px) {
+      height: 160px;
+    }
   }
 
   h3 {
@@ -382,17 +410,25 @@ const ActionButtons = styled.div`
     &:hover {
       background: darkred;
     }
-    &:nth-child(3){
+    &:nth-child(3) {
       background: red;
       &:hover {
         background: darkred;
       }
     }
   }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    button,
+    select {
+      width: 50%;
+    }
+  }
 `;
 
 const ModalOverlay = styled.div`
-  position: fixed;
+  position:fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -401,19 +437,28 @@ const ModalOverlay = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  
 `;
 
 const ModalContent = styled.div`
   background: #fff;
   padding: 1.5rem;
   border-radius: 10px;
-  width: 50%;
+  width: 80%;
   max-width: 500px;
+
+  @media (max-width: 480px) {
+    max-width: 400px;
+    width: 80%;
+    input, textarea, select {
+      width: 90%;
+    }
+  }
 
   input,
   textarea,
   select {
-    width: 100%;
+    width: 95%;
     margin-bottom: 1rem;
     padding: 0.7rem;
     border-radius: 5px;
@@ -447,5 +492,11 @@ const ModalButtons = styled.div`
     background: gray;
     color: white;
   }
-`;
 
+  @media (max-width: 480px){
+    flex-direction: column;
+    button {
+      width: 80%;
+    }
+  }
+`;

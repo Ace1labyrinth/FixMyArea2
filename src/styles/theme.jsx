@@ -13,4 +13,9 @@ export const theme = {
     heading: "'Inter', sans-serif",
     body: "'Inter', sans-serif",
   },
+  breakpoints: {
+    mobile: "480px",
+    tablet: "768px",
+    laptop: "1024px",
+  }
 };

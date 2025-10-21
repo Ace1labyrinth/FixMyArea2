@@ -38,7 +38,7 @@ code {
   box-sizing: border-box;
 }
 .signup-form button {
-  background-color: blue;
+  background-color: green;
   color: #fff;
   border: none;
   width: 100%;
@@ -52,7 +52,7 @@ code {
 }
 
 .signup-form button:hover {
-  background-color: rgb(20, 70, 190);
+  background-color: rgb(39, 149, 20);
 }
 .login-container {
   display: flex;
@@ -85,7 +85,7 @@ code {
 }
 
 .login-form button {
-  background-color: blue;
+  background-color: green;
   color: #fff;
   border: none;
   width: 100%;
@@ -96,7 +96,7 @@ code {
 }
 
 .login-form button:hover {
-  background-color: rgb(20, 70, 190);
+  background-color: rgb(39, 149, 20);
 }
 
 .login-form a {
@@ -114,7 +114,7 @@ code {
   text-align: center;
 }
 .btn {
-  background-color: blue;
+  background-color: green;
   color: #fff;
   border: none;
   padding: 10px 100px;
