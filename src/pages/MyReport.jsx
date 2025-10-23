@@ -217,13 +217,15 @@ const ReportsGrid = styled.div`
   display: grid;
   width: 100%;
   box-sizing: border-box;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.2rem;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  align-items: start;
+  padding-bottom: 2rem;
   justify-items: center;
 
   @media (max-width: 1024px) {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1.2rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
   }
 
   @media (max-width: 768px) {
