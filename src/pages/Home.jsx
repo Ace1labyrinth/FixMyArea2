@@ -252,19 +252,19 @@ const Hero = styled.div`
     color: green;
 
     @media (max-width: 768px) {
-      font-size: 2.5rem;
+      font-size: 3rem;
     }
     @media (max-width: 480px) {
-      font-size: 1.4rem;
+      font-size: 1.7rem;
     }
   }
 
   .para {
     margin: 0.5rem 0;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
 
     @media (max-width: 480px) {
-      font-size: 0.9rem;
+      font-size: 1rem;
     }
   }
 `;

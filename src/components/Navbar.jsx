@@ -66,12 +66,12 @@ const NavLinks = styled.div`
 
   @media (max-width: 768px) {
     position: absolute;
-    top: 65px;
-    right: -9%;
+    top: 80px;
+    right: 0;
     background: rgb(74, 149, 74);
     flex-direction: column;
     align-items: flex-start;
-    width: 100%;
+    width: 90%;
     padding: 1rem 2rem;
     gap: 1rem;
     border-top: 1px solid rgba(255, 255, 255, 0.2);

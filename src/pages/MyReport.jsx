@@ -13,7 +13,6 @@ import styled from "styled-components";
 import {auth, db} from "../firebase";
 // import {useNavigate} from "react-router-dom";
 
-
 const MyReports = () => {
   const [reports, setReports] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -86,7 +85,7 @@ const MyReports = () => {
       setEditingReport(null);
       setUpdatedDescription("");
       setMessage("Report updated successfully!");
-      setTimeout(()=> setMessage(""), 2000);
+      setTimeout(() => setMessage(""), 2000);
     } catch (error) {
       console.error("Error updating report:", error);
     }
@@ -171,15 +170,20 @@ const MyReports = () => {
 export default MyReports;
 
 const Container = styled.div`
-  padding: 1rem;
-  max-width: 1200px;
-  margin: auto;
+  padding: 2rem;
+  max-width: 1300px;
+  margin: 0 auto;
+  min-height: 100vh;
 
-  @media (max-width: 768px){
-    padding: 0.8rem;
+  @media (max-width: 1024px) {
+    padding: 1.5rem;
   }
-  @media (max-width: 480px){
-    padding: 0.6rem;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
+  @media (max-width: 480px) {
+    padding: 0.8rem;
   }
 `;
 const Title = styled.h2`
@@ -187,9 +191,18 @@ const Title = styled.h2`
   font-weight: 600;
   color: #222;
   margin-bottom: 1rem;
+  text-align: center;
+
+  @media (max-width: 1024px) {
+    font-size: 1.8rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.6rem;
+  }
 
   @media (max-width: 480px) {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 `;
 
@@ -202,20 +215,39 @@ const SuccessMsg = styled.p`
 
 const ReportsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  width: 100%;
+  box-sizing: border-box;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.2rem;
+  justify-items: center;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.2rem;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 
   @media (max-width: 480px) {
-    grid-template-columns: 1fr;
+    gap: 0.8rem;
   }
 `;
 
 const ReportCard = styled.div`
+  width: 100%;
+  max-width: 300px;
   background: #fff;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 15px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+  border-box: border-box;
+  padding: 1.2rem 1.5rem;
   transition: 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   &:hover {
     transform: translateY(-3px);
@@ -225,17 +257,32 @@ const ReportCard = styled.div`
   h3 {
     margin-bottom: 0.4rem;
     color: #333;
+    font-size: 1.2rem;
   }
   p {
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
+    line-height: 1rem;
   }
   small {
     color: gray;
+    display: block;
+    margin-top: 0.3rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+
+    h3 {
+      font-size: 1.05rem;
+    }
+    p {
+      font-size: 0.9rem;
+    }
   }
 
   @media (max-width: 480px) {
-    padding: 12px 15px;
+    padding: 0.9rem;
     h3 {
       font-size: 1rem;
     }
@@ -246,11 +293,15 @@ const ReportCard = styled.div`
 `;
 
 const Image = styled.img`
-  width: 100%;
-  max-height: 180px;
+  width: 250px;
+  max-height: 220px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 10px;
   margin-top: 0.5rem;
+
+  @media (max-width: 768px) {
+    max-height: 180px;
+  }
 
   @media (max-width: 480px) {
     max-height: 160px;
@@ -262,11 +313,16 @@ const EditArea = styled.textarea`
   padding: 8px;
   border-radius: 6px;
   border: 1px solid #ccc;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   resize: vertical;
   margin-bottom: 0.7rem;
 
-  @media (max-width: 480px){
+  @media (max-width: 768px) {
+    font-size: 0.5rem;
+    padding: 8px;
+  }
+
+  @media (max-width: 480px) {
     font-size: 0.85rem;
   }
 `;
@@ -289,9 +345,13 @@ const ButtonBase = styled.button`
   font-weight: 500;
   border: none;
   cursor: pointer;
-  transition: 0.3s ease-in-out;
+  transition: background 0.3s ease, transform 0.2s ease;
 
-  @media (max-width: 480px){
+  &:hover {
+    transform: scale(1.03);
+  }
+
+  @media (max-width: 480px) {
     font-size: 0.85rem;
   }
 `;
