@@ -71,7 +71,7 @@ const NavLinks = styled.div`
     background: rgb(74, 149, 74);
     flex-direction: column;
     align-items: flex-start;
-    width: 90%;
+    width: 94%;
     padding: 1rem 2rem;
     gap: 1rem;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
